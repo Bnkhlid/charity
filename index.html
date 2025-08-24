@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ذكرى سنوية - صدقة جارية</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Amiri Quran", serif;
+        background: url("images/4534748963c1337942af725e4853637c.jpg") no-repeat
+          center center fixed;
+        background-size: cover;
+        color: #fff;
+        text-align: center;
+        position: relative;
+      }
+
+      /* طبقة شفافة فوق الخلفية */
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.55);
+        z-index: -1;
+      }
+
+      .container {
+        background: rgba(255, 255, 255, 0.2); /* خليتها شفافة جدًا */
+        border-radius: 20px;
+        padding: 30px;
+        max-width: 850px;
+        margin: 40px auto;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* ظل أخف عشان يكون متناسق مع الشفافية */
+        color: #fff; /* النص أبيض عشان يوضح على الخلفية */
+      }
+
+      h1,
+      h2 {
+        color: #58c686;
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        font-size: 30px;
+        font-weight: bold;
+      }
+      h2 {
+        font-size: 24px;
+      }
+
+      p {
+        color: #620e0e;
+        font-size: 18px;
+      }
+
+      /* السلايدر */
+      .slider {
+        position: relative;
+        max-width: 650px;
+        margin: auto;
+        min-height: 120px;
+      }
+
+      .slide {
+        display: none;
+      }
+      .active {
+        display: block;
+      }
+
+      .slide img {
+        width: 100%;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .text-slide {
+        font-size: 22px;
+        color: #620e0e;
+        background: #f8fafc;
+        padding: 20px;
+        border-radius: 15px;
+        line-height: 1.8;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+      }
+
+      /* أزرار الأدعية */
+      .controls {
+        margin-top: 15px;
+      }
+      .controls button {
+        background: #58c686;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        margin: 0 5px;
+        border-radius: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .controls button:hover {
+        background: #0d3620;
+        transform: scale(1.05);
+      }
+
+      /* الأسهم للصور */
+      .btn {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(20, 83, 45, 0.85);
+        color: #fff;
+        padding: 12px;
+        border-radius: 50%;
+        font-size: 22px;
+        user-select: none;
+        transition: all 0.3s;
+      }
+      .btn:hover {
+        background: rgba(13, 54, 32, 0.9);
+      }
+      .prev {
+        left: -50px;
+      }
+      .next {
+        right: -50px;
+      }
+
+      footer {
+        margin-top: 25px;
+        font-size: 15px;
+        color: #eee;
+      }
+
+      audio {
+        margin-top: 20px;
+        width: 100%;
+      }
+
+      .years {
+        font-size: 18px;
+        color: #620e0e;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- العنوان -->
+    <div class="container">
+      <h1>ذكرى سنوية لروح فقيدتنا الغالية ابتسام محمد الأخضر</h1>
+      <p>اللهم اجعل هذا الموقع صدقة جارية لروحها الطاهرة</p>
+      <div class="years" id="yearsPassed"></div>
+    </div>
+
+    <!-- قسم الأدعية -->
+    <div class="container">
+      <h2>أدعية للفقيدة</h2>
+      <div class="slider" id="duaSlider">
+        <div class="slide active text-slide">
+          اللهم اغفر لها وارحمها، واجعل قبرها روضة من رياض الجنة
+        </div>
+        <div class="slide text-slide">
+          اللهم اجعل القرآن شفيعًا لها يوم القيامة
+        </div>
+        <div class="slide text-slide">اللهم اجعل عملها في ميزان حسناتها</div>
+        <div class="slide text-slide">
+          اللهم اجعل لقبرها نورًا ولروحها سكينة
+        </div>
+        <div class="slide text-slide">
+          اللهم اجمعنا بها في الفردوس الأعلى برحمتك
+        </div>
+        <div class="slide text-slide">
+          اللهم أنر قبرها بنورك واجعلها مطمئنة بجوارك
+        </div>
+        <div class="slide text-slide">
+          اللهم ارزقها لذة النظر إلى وجهك الكريم
+        </div>
+        <div class="slide text-slide">
+          اللهم اجعلها من أهل الجنة بلا حساب ولا عذاب
+        </div>
+        <div class="slide text-slide">
+          اللهم اجعل كل ألم عانته كفارة ورفعة لدرجاتها
+        </div>
+        <div class="slide text-slide">اللهم اجعلها آمنة مطمئنة عند السؤال</div>
+        <div class="slide text-slide">
+          اللهم ارحم غربتها ووحشتها واجعلها في سعة من رحمتك
+        </div>
+        <div class="slide text-slide">
+          اللهم اغسلها من خطاياها بالماء والثلج والبرد
+        </div>
+        <div class="slide text-slide">
+          اللهم جازها بالإحسان إحسانًا وبالسيئات عفوًا وغفرانًا
+        </div>
+        <div class="slide text-slide">
+          اللهم اجعلها من المبشرين بالجنة عند لقائك
+        </div>
+        <div class="slide text-slide">
+          اللهم ارحمها رحمة واسعة لا تدع ذنبًا إلا غفرته
+        </div>
+      </div>
+      <div class="controls">
+        <button onclick="changeSlide('duaSlider', -1)">◀ السابق</button>
+        <button onclick="changeSlide('duaSlider', 1)">التالي ▶</button>
+      </div>
+    </div>
+
+    <!-- قسم الآيات -->
+    <div class="container">
+      <h2>آيات قرآنية لروح فقيدتنا الغالية ابتسام محمدالأخضر</h2>
+      <div class="slider" id="ayahSlider">
+        <div class="slide active">
+          <img src="images/1.jpg" alt="آية 1" />
+        </div>
+        <div class="slide">
+          <img src="images/2.jpg" alt="آية 2" />
+        </div>
+        <div class="slide">
+          <img src="images/3.jpg" alt="آية 3" />
+        </div>
+        <span class="btn prev" onclick="changeSlide('ayahSlider', 1)"
+          >&#10094;</span
+        >
+        <span class="btn next" onclick="changeSlide('ayahSlider', -1)"
+          >&#10095;</span
+        >
+      </div>
+    </div>
+
+    <!-- مشغل قرآن -->
+    <div class="container">
+      <h2>تلاوة عطرة لروح فقيدتنا الغالية ابتسام محمد الأخضر</h2>
+      <audio controls>
+        <source
+          src="https://server10.mp3quran.net/minsh/001.mp3"
+          type="audio/mpeg"
+        />
+        متصفحك لا يدعم تشغيل الصوت.
+      </audio>
+    </div>
+
+    <footer>&copy; صدقة جارية لروح فقيدتنا الغالية</footer>
+
+    <script>
+      function changeSlide(sliderId, step) {
+        const slider = document.getElementById(sliderId);
+        const slides = slider.querySelectorAll(".slide");
+        let index = Array.from(slides).findIndex((s) =>
+          s.classList.contains("active")
+        );
+        slides[index].classList.remove("active");
+        index = (index + step + slides.length) % slides.length;
+        slides[index].classList.add("active");
+      }
+
+      setInterval(() => changeSlide("duaSlider", 1), 7000);
+
+      const deathDate = new Date("2023-08-25");
+      const today = new Date();
+      let years = today.getFullYear() - deathDate.getFullYear();
+      let months = today.getMonth() - deathDate.getMonth();
+      let days = today.getDate() - deathDate.getDate();
+      if (days < 0) {
+        months--;
+      }
+      if (months < 0) {
+        years--;
+      }
+
+      document.getElementById(
+        "yearsPassed"
+      ).textContent = `مرت ${years} سنة على وفاتها (25 أغسطس 2023)`;
+    </script>
+  </body>
+</html>
